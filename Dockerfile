@@ -4,8 +4,8 @@ RUN rm -rf /usr/local/tomcat/webapps/*
 
 COPY EMS.war /usr/local/tomcat/webapps/ROOT.war
 
-# Replace default port with Render PORT
-ENV PORT 8080
+# Make Tomcat use Render's PORT
+RUN sed -i 's/port="8080"/port="${PORT}"/' /usr/local/tomcat/conf/server.xml
 
 EXPOSE 8080
 
