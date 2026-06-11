@@ -1,9 +1,9 @@
-FROM tomcat:9.0-jdk17  
+FROM tomcat:9.0-jdk17
 
-RUN rm -rf usrlocaltomcatwebapps
+RUN rm -rf /usr/local/tomcat/webapps/*
 
-COPY EMS.war usrlocaltomcatwebappsROOT.war
+COPY EMS.war /usr/local/tomcat/webapps/ROOT.war
 
 EXPOSE 8080
 
-CMD [catalina.sh, run]
+CMD ["catalina.sh", "run"]
